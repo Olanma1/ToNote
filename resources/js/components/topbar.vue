@@ -1,4 +1,5 @@
 <template>
+    <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <router-link :to="{name: 'products'}"
@@ -23,6 +24,7 @@
       </div>
     </div>
   </nav>
+</div>
 </template>
 
 <script>
