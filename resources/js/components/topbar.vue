@@ -25,7 +25,7 @@
     </div>
   </nav>
 </template>
-
+</template>
 <script>
 import { useRouter } from 'vue-router';
 import axiosClient from "../../axios";
