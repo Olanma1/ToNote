@@ -1,2 +1,2 @@
 # ToNote
-Assessment test for ToNote 
+Assessment test for ToNote. For better use of this project, after forking or cloning, make sure to run "composer install" and also "npm install" to gather all frontend dependencies(This is built with vue3). Avoid running "composer update" because it might mess with the already existing plugins. Now, you can serve the project on your local by running "npm run dev", finally run "php artisan serve" then voila you're good to go. Have a great one.
