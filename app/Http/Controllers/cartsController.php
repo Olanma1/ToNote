@@ -47,12 +47,6 @@ class cartsController extends Controller
                 'user_id' => $theUserId,
             ]);
         }
-        // $cart = Cart::create([
-        //     'product_id' => $product->id,
-        //     'quantity' => 1,
-        //     'price' => $product->price,
-        //     'user_id' => $theUserId,
-        // ]);
 
         if($cart){
 
