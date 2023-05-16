@@ -10,6 +10,6 @@
 <body>
 <div id="app"></div>
 
-@vite('resources/app.js')
+@vite('resources/js/app.js')
 </body>
 </html>
