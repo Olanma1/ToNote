@@ -2,10 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Models\Cart;
-use App\Models\Product;
+use Mockery;
 use Tests\TestCase;
+use App\Models\Cart;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CartsControllerTest extends TestCase
@@ -36,6 +37,12 @@ class CartsControllerTest extends TestCase
         $user = User::factory()->create();
         $product = Product::factory()->create();
 
+        $kafkaProducer = Mockery::mock('KafkaProducer');
+        $kafkaProducer->shouldReceive('cartItem')->once()->andReturn(true);
+
+        // Inject the mocked Kafka producer into the container
+        $this->app->instance('KafkaProducer', $kafkaProducer);
+
         $response = $this->actingAs($user)
             ->postJson(route('add.cart', [
                 'product_id' => $product->id,
@@ -54,6 +61,7 @@ class CartsControllerTest extends TestCase
                 ],
                 'message' => 'You have added product to cart'
             ]);
+            $kafkaProducer->shouldHaveReceived('cartItem')->once();
         $this->assertNotEmpty($response->json()['data']);
     }
 }

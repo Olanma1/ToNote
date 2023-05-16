@@ -22,7 +22,7 @@ class ProductControllerTest extends TestCase
                 'data' => [
                     "current_page" => 1,
                     "data" => [],
-                    "first_page_url" => "http://localhost/api/allProducts?page=1",
+                    "first_page_url" => "https://tonote-app.herokuapp.com/api/allProducts?page=1",
                 ],
                 'message' => 'You have successfully fetched all available products'
             ]);
