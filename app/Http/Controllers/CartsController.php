@@ -22,14 +22,6 @@ class CartsController extends Controller
             ], 200);
         }
 
-        //Pass to producer
-
-        $message = new Message(
-            body: ["userId" => $theUserId, "productId" => $productId],
-        );
-
-        Kafka::publishOn("cartItem")->withMessage($message)->send();
-
         $product = Product::find($productId);
 
         $productExistsInCart = Cart::where(['id' => $productId, 'user_id' => $theUserId])->first();
@@ -51,6 +43,14 @@ class CartsController extends Controller
         if($cart){
 
             $userCartProducts = Cart::where(['user_id' => $theUserId, 'id' => $productId])->first();
+
+            //Pass to producer
+
+            $message = new Message(
+                body: ["userId" => $theUserId, "productId" => $productId],
+            );
+
+            Kafka::publishOn("cartItem")->withMessage($message)->send();
             return response([
                 'data' => $userCartProducts,
                 'message' => 'You have added product to cart'
