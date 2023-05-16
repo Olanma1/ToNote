@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kinetic Push</title>
 
-    @vite('resources/js/sass/app.scss')
+    @vite('resources/sass/app.scss')
 </head>
 <body>
 <div id="app"></div>
 
-@vite('resources/js/app.js')
+@vite('resources/app.js')
 </body>
 </html>
