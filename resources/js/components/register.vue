@@ -47,8 +47,10 @@ function register(ev) {
     .then((data) => {
         Auth.initializeAuthUser(JSON.stringify(data));
         router.push({path: "/"})
+    }).catch(() => {
+        this.$toast.warning("credentials already exists")
+        setTimeout(this.$toast.clear, 3000)
     })
-}
    </script>
 
    <style>

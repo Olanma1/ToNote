@@ -44,7 +44,10 @@ function login(ev) {
     .then((data) => {
         Auth.initializeAuthUser(JSON.stringify(data));
        router.push({path: "/"});
-    });
+    }).catch(() => {
+        this.$toast.warning("You need to check your login credentials")
+        setTimeout(this.$toast.clear, 3000)
+    })
 }
 </script>
 
