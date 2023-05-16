@@ -29,7 +29,7 @@
 
 import store from "../store/app"
 import  { useRouter }  from "vue-router";
-import Auth from "../auth";
+import Auth from "../Auth";
 
 
 const user = {
