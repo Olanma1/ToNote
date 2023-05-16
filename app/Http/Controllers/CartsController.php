@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Junges\Kafka\Facades\Kafka;
-use Junges\Kafka\Message\Message;
+
 
 class CartsController extends Controller
 {
@@ -14,12 +13,6 @@ class CartsController extends Controller
    {
         $productId = $request['product_id'];
         $theUserId = auth()->user()->id;
-
-        $message = new Message(
-            body: ["userId" => $theUserId, "productId" => $productId],
-        );
-
-        Kafka::publishOn("cartItem")->withMessage($message)->send();
 
         if(!$productId){
             return response([
