@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Junges\Kafka\Facades\Kafka;
 use Junges\Kafka\Message\Message;
 
-class cartsController extends Controller
+class CartsController extends Controller
 {
    public function addProductsToCart(Request $request)
    {

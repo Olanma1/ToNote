@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 
-class productsController extends Controller
+class ProductsController extends Controller
 {
     public function getAllProducts()
     {
