@@ -33,7 +33,7 @@
 import store from "../store/app";
 import  { useRouter }  from "vue-router";
 import Auth from "../auth";
-
+import Toaster from '@meforma/vue-toaster';
 
   const user = {
     name: '',
@@ -51,6 +51,7 @@ function register(ev) {
         this.$toast.warning("credentials already exists")
         setTimeout(this.$toast.clear, 3000)
     })
+}
    </script>
 
    <style>
