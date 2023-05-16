@@ -30,7 +30,7 @@
 <script>
 import { useRouter } from 'vue-router';
 import axiosClient from "../../axios";
-import Auth from "../Auth";
+import Auth from "../auth";
 
 
 export default({
